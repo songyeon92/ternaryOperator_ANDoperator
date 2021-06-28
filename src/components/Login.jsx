@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "./Input";
 
-const Login = () => {
+const Login = (props) => {
     return (
         <form className="form">
             <Input 
@@ -12,7 +12,11 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
             />
-            <button type="submit">Login</button>
+            { (props.isRegistered === false) && <Input 
+                type="password"
+                placeholder="Confirm Password"
+            /> }
+            <button type="submit">{ (props.isRegistered)? "Login" : "Register" }</button>
         </form>
     );
 }
